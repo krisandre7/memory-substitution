@@ -15,8 +15,8 @@ public class PageComparator implements Comparator<Page> {
                 return p1.getArrivalTime() - p2.getArrivalTime();
             case LRU:
                 return p1.getLastUsed() - p2.getLastUsed();
-            case ASCENDING:
-                return p1.getPage() - p2.getPage();
+            // case ASCENDING:
+            //     return p1.getPage() - p2.getPage();
             default:
                 return 0;
         }
