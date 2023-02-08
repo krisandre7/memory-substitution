@@ -1,26 +1,26 @@
 
 // A page in memory
 public class Page {
+    private int id;
     private int page;
     private int process;
-    private int arrivalTime; // for FIFO
     private int lastUsed; // for LRU
     private boolean used; // for Second Chance
 
-    public Page(int page, int process, int arrivalTime) {
+    public Page(int page, int process) {
         this.page = page;
         this.process = process;
-        this.arrivalTime = arrivalTime;
-        this.lastUsed = arrivalTime;
         this.used = true;
     }
 
     public int getProcess() {
         return process;
     }
-    public int getArrivalTime() {
-        return arrivalTime;
+
+    public int getId() {
+        return id;
     }
+
 
     public int getLastUsed() {
         return lastUsed;
@@ -34,13 +34,6 @@ public class Page {
         return page;
     }
 
-    public void changeProcess(int process, int arrivalTime) {
-        this.process = process;
-        this.arrivalTime = arrivalTime;
-        this.lastUsed = arrivalTime;
-        this.used = true;
-    }
-
     public void use(int useTime) {
         this.used = true;
         this.lastUsed = useTime;
@@ -52,6 +45,7 @@ public class Page {
 
     @Override
     public String toString() {
-        return page + ": " + process;
+        return "Page [id=" + id + ", page=" + page + ", process=" + process + ", lastUsed=" + lastUsed + ", used=" + used
+                + "]";
     }
 }
